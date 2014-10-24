@@ -1,3 +1,4 @@
+#First we print the list of students
 puts "The students in my cohort at makers academy are: "
 puts "------------"
 puts "Abdul Hassan"
@@ -16,7 +17,9 @@ puts "Sandrine Zhang-Ferron"
 puts "Tim Scully"
 puts "Victoria Stepanova"
 puts "Alex Blease"
-
+#Then we print the number of students in the cohort
 print "Overall we have "
 print "15"
+#This code snippet at the end illustrates that puts() includes a newline
+#and print() doesn't
 puts " great students."
