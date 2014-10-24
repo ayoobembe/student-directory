@@ -1,4 +1,6 @@
 #First we print the list of students
+student_count = 15
+
 puts "The students in my cohort at makers academy are: "
 puts "------------"
 puts "Abdul Hassan"
@@ -18,8 +20,4 @@ puts "Tim Scully"
 puts "Victoria Stepanova"
 puts "Alex Blease"
 #Then we print the number of students in the cohort
-print "Overall we have "
-print "15"
-#This code snippet at the end illustrates that puts() includes a newline
-#and print() doesn't
-puts " great students."
+puts "Overall we have #{student_count} great students!"
