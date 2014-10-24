@@ -17,3 +17,6 @@ puts "Tim Scully"
 puts "Victoria Stepanova"
 puts "Alex Blease"
 
+print "Overall we have "
+print "15"
+puts " great students."
