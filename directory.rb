@@ -19,12 +19,27 @@ students = [
 	"Alex Blease",
 ]
 
-#print out the student names
-puts "The students in my cohort at makers academy are: "
-puts "------------"
-students.each do |student|
-	puts student
+#function to print introductory line/header
+def print_header
+	puts "The students of my cohort at Makers Academy"
+	puts "-------------------------------------------"
 end
 
-#Then we print the number of students in the cohort
-puts "Overall we have #{students.length} great students!"
+#function to print the names of each student in the cohort
+def print(names)
+	names.each do |name|
+		puts name
+	end
+end
+
+#function to print the closing lines
+def print_footer(names)
+	puts "Overall we have #{names.length} great students!"
+end
+
+#calling functions to actually execute the code
+print_header
+print(students)
+print_footer(students)
+
+
