@@ -1,22 +1,22 @@
 
 #students is an array of strings containing student names
 students = [
-	"Abdul Hassan",
-	"Alan Bridger",
-	"Alexander Levin",
-	"Ana Nogal",
-	"Andrew Harrison",
-	"Andrew Hercules",
-	"Atilla Mirk",
-	"Claudia B",
-	"Colin Smif",
-	"Daniel Cotler",
-	"Ella Schofield",
-	"Elena Garone",
-	"Sandrine Zhang-Ferron",
-	"Tim Scully",
-	"Victoria Stepanova",
-	"Alex Blease",
+	{:name => "Abdul Hassan", :cohort => :october},
+	{:name => "Alan Bridger", :cohort => :october},
+	{:name => "Alexander Levin", :cohort => :october},
+	{:name => "Ana Nogal", :cohort => :october},
+	{:name => "Andrew Harrison", :cohort => :october},
+	{:name => "Andrew Hercules", :cohort => :october},
+	{:name => "Atilla Mirk", :cohort => :october},
+	{:name => "Claudia B", :cohort => :october},
+	{:name => "Colin Smif", :cohort => :october},
+	{:name => "Daniel Cotler", :cohort => :october},
+	{:name => "Ella Schofield", :cohort => :october},
+	{:name => "Elena Garone", :cohort => :october},
+	{:name => "Sandrine Zhang-Ferron", :cohort => :october},
+	{:name => "Tim Scully", :cohort => :october},
+	{:name => "Victoria Stepanova", :cohort => :october},
+	{:name => "Alex Blease", :cohort => :october},
 ]
 
 #function to print introductory line/header
@@ -26,9 +26,9 @@ def print_header
 end
 
 #function to print the names of each student in the cohort
-def print(names)
-	names.each do |name|
-		puts name
+def print(students)
+	students.each do |student|
+		puts "#{stuent[:name]} (#{student[:cohort]} cohort)"
 	end
 end
 
