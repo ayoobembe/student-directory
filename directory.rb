@@ -1,6 +1,25 @@
 
 @students = [] 
 
+#function to print introductory line/header
+def print_header
+	puts "The students of my cohort at Makers Academy"
+	puts "-------------------------------------------"
+end
+
+#function to print the names of each student in the cohort
+def print_students_list
+	@students.to_a.each do |student|
+		puts "#{student[:name]} (#{student[:cohort]} cohort)"
+	end
+end
+
+#function to print the closing lines
+def print_footer
+	puts "Overall we have #{@students.to_a.length} great students!"
+end
+
+
 def input_students
 	puts "Please enter the names of the students"
 	puts "To finish, just hit return twice"
@@ -21,25 +40,6 @@ def input_students
 end
 
 
-#function to print introductory line/header
-def print_header
-	puts "The students of my cohort at Makers Academy"
-	puts "-------------------------------------------"
-end
-
-#function to print the names of each student in the cohort
-def print_students_list
-	@students.to_a.each do |student|
-		puts "#{student[:name]} (#{student[:cohort]} cohort)"
-	end
-end
-
-#function to print the closing lines
-def print_footer
-	puts "Overall we have #{@students.to_a.length} great students!"
-end
-
-
 def print_menu
 		puts "1. Input the students"
 		puts "2. Show the students"
@@ -52,6 +52,7 @@ def show_students
 	print_footer
 end
 
+
 def interactive_menu
 	#students = []
 
@@ -63,7 +64,7 @@ def interactive_menu
 	#do what user has asked based on selection
 		case selection
 			when "1"
-				@students = input_students
+				input_students
 			when "2"
 				show_students
 			when "9"
