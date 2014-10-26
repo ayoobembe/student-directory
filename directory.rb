@@ -53,26 +53,24 @@ def show_students
 end
 
 
-def interactive_menu
-	#students = []
+def process(selection)
+	case selection
+	when "1"
+		input_students
+	when "2"
+		show_students
+	when "9"
+		exit #this would cause program to terminate
+	else
+		puts "I don't know what you meant. Please try again."
+	end
+end
 
+def interactive_menu
 	loop do
 	#print the menu and ask the user what to do
 		print_menu
-	#print the input and save it to a variable
-		selection = gets.chomp
-	#do what user has asked based on selection
-		case selection
-			when "1"
-				input_students
-			when "2"
-				show_students
-			when "9"
-				exit #this would cause program to terminate
-			else
-				puts "I don't know what you meant. Please try again."
-
-		end
+		process(gets.chomp)
 	end
 end
 
