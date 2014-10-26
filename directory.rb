@@ -1,44 +1,23 @@
-#students is an array of strings containing student names
-=begin
-students = [
-	{:name => "Abdul Hassan", :cohort => :october},
-	{:name => "Alan Bridger", :cohort => :october},
-	{:name => "Alexander Levin", :cohort => :october},
-	{:name => "Ana Nogal", :cohort => :october},
-	{:name => "Andrew Harrison", :cohort => :october},
-	{:name => "Andrew Hercules", :cohort => :october},
-	{:name => "Atilla Mirk", :cohort => :october},
-	{:name => "Claudia B", :cohort => :october},
-	{:name => "Colin Smif", :cohort => :october},
-	{:name => "Daniel Cotler", :cohort => :october},
-	{:name => "Ella Schofield", :cohort => :october},
-	{:name => "Elena Garone", :cohort => :october},
-	{:name => "Sandrine Zhang-Ferron", :cohort => :october},
-	{:name => "Tim Scully", :cohort => :october},
-	{:name => "Victoria Stepanova", :cohort => :october},
-	{:name => "Alex Blease", :cohort => :october},
-]
-=end
 
-
+@students = [] 
 
 def input_students
 	puts "Please enter the names of the students"
 	puts "To finish, just hit return twice"
 	#create an empty array
-	students = []
+	#students = []
 	#get first name
 	name = gets.chomp
 	#while the name is not empty, repeat this code
 	while !name.empty? do
 		#add the student hash to the array
-		students << {:name => name, :cohort => :october}
-		puts "Now we have #{students.length} students"
+		@students << {:name => name, :cohort => :october}#hash
+		puts "Now we have #{@students.length} students"
 		#get another name from the user
 		name = gets.chomp
 	end
 	#return the array of students
-	students
+	#students
 end
 
 
@@ -49,21 +28,55 @@ def print_header
 end
 
 #function to print the names of each student in the cohort
-def print(students)
-	students.each do |student|
+def print_students_list
+	@students.to_a.each do |student|
 		puts "#{student[:name]} (#{student[:cohort]} cohort)"
 	end
 end
 
 #function to print the closing lines
-def print_footer(names)
-	puts "Overall we have #{names.length} great students!"
+def print_footer
+	puts "Overall we have #{@students.to_a.length} great students!"
+end
+
+
+def print_menu
+		puts "1. Input the students"
+		puts "2. Show the students"
+		puts "9. Exit"
+end
+
+def show_students
+	print_header
+	print_students_list
+	print_footer
+end
+
+def interactive_menu
+	#students = []
+
+	loop do
+	#print the menu and ask the user what to do
+		print_menu
+	#print the input and save it to a variable
+		selection = gets.chomp
+	#do what user has asked based on selection
+		case selection
+			when "1"
+				@students = input_students
+			when "2"
+				show_students
+			when "9"
+				exit #this would cause program to terminate
+			else
+				puts "I don't know what you meant. Please try again."
+
+		end
+	end
 end
 
 #calling functions to actually execute the code
-students = input_students
-print_header
-print(students)
-print_footer(students)
+interactive_menu
+
 
 
