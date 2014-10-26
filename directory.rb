@@ -26,14 +26,14 @@ def input_students
 	#create an empty array
 	#students = []
 	#get first name
-	name = gets.chomp
+	name = STDIN.gets.chomp
 	#while the name is not empty, repeat this code
 	while !name.empty? do
 		#add the student hash to the array
 		@students << {:name => name, :cohort => :october}#hash
 		puts "Now we have #{@students.length} students"
 		#get another name from the user
-		name = gets.chomp
+		name = STDIN.gets.chomp
 	end
 	#return the array of students
 	#students
@@ -44,6 +44,7 @@ def print_menu
 		puts "1. Input the students"
 		puts "2. Show the students"
 		puts "3. Save the students to students.csv"
+		puts "4. Load the students from file"
 		puts "9. Exit"
 end
 
@@ -62,6 +63,8 @@ def process(selection)
 		show_students
 	when "3"
 		save_students
+	when "4"
+		load_students
 	when "9"
 		exit #this would cause program to terminate
 	else
@@ -73,7 +76,7 @@ def interactive_menu
 	loop do
 	#print the menu and ask the user what to do
 		print_menu
-		process(gets.chomp)
+		process(STDIN.gets.chomp)
 	end
 end
 
@@ -90,9 +93,31 @@ def save_students
 	file.close
 end
 
+def load_students(filename = "students.csv")
+	file = File.open(filename, "r")
+	file.readlines.each do |line|
+		name, cohort = line.chomp.split(",")
+		@students << {:name => name, :cohort => cohort.to_sym}
+	end
+	file.close
+end
+
+def try_load_students
+	filename = ARGV.first
+	return if filename.nil?
+	if File.exists?(filename)
+		load_students(filename)
+		puts "Loaded #{@students.length} from #{filename}"
+	else
+		puts "Sorry #{filename} does not exist"
+		exit
+	end
+end
+
 
 
 #calling functions to actually execute the code
+try_load_students
 interactive_menu
 
 
